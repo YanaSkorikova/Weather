@@ -14,7 +14,7 @@ let month = months[now.getMonth()];
 
 function time() {
   let minutes = now.getMinutes();
-  if (minutes > 10) {
+  if (minutes > 9) {
     p2.innerHTML = `${day} ${hours}:${minutes}`;
   } else {
     p2.innerHTML = `${day} ${hours}:0${minutes}`;
