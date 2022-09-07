@@ -14,11 +14,19 @@ let month = months[now.getMonth()];
 
 function time() {
   let minutes = now.getMinutes();
-  if (minutes > 9) {
-    p2.innerHTML = `${day} ${hours}:${minutes}`;
-  } else {
-    p2.innerHTML = `${day} ${hours}:0${minutes}`;
-  }
+  let hours = now.getHours();
+     if (minutes < 10 ) {
+         p2.innerHTML = `${day} ${hours}:0${minutes}`;
+         } else {
+         p2.innerHTML = `${day} ${hours}:${minutes}`;
+
+       if (minutes < 10) {
+          p2.innerHTML = `${day} 0${hours}:${minutes}`;
+       } else {
+          p2.innerHTML = `${day} ${hours}:${minutes}`;
+    }
+
+};
 }
 time();
 
@@ -80,7 +88,9 @@ p29.innerHTML = `${day5} ${date+5} ${month}`;
 p30.innerHTML = `${day6} ${date+6} ${month}`;
 
 
-let searchInput = document.querySelector(".form-control");
+
+
+
 
 function showtemperature(response) {
   console.log(response.data.main.temp);
@@ -113,9 +123,19 @@ function showPosition(position) {
 
 
 }
-function getCurrentPosition() {
+function getCurrentPosition(event) {
+  event.preventDefault();
       navigator.geolocation.getCurrentPosition(showPosition)
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector(".city").value;
+  showname(response);
+}
+
+let searchInput = document.querySelector(".form-control");
+searchInput.addEventListener("submit", handleSubmit);
+
 let buttonCurrent = document.querySelector(".current");
-buttonCurrent.addEventListener("click", getCurrentPosition)
+buttonCurrent.addEventListener("click", getCurrentPosition);
