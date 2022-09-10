@@ -116,11 +116,14 @@ function displayWeatherCondition(response) {
     document.querySelector("#wind").innerHTML = Math.round(
       response.data.wind.speed
   );
-  document.querySelector("#feels_like").innerHTML = Math.round(
-  response.data.main.feels_like);
-  document.querySelector("#pressure").innerHTML =
-  response.data.main.pressure
+    document.querySelector("#feels_like").innerHTML = Math.round(
+       response.data.main.feels_like);
+    document.querySelector("#pressure").innerHTML =
+       response.data.main.pressure
 
+
+  let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   //city.innerHTML = `Currently in <strong> ${response.data[0].name} </strong>`;
   //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${response.data[0].name}&appid=58be440968db92b348001fa4911e5ece&units=metric`;
   //axios.get(apiUrl).then(displayWeatherCondition);
