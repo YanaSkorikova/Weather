@@ -52,8 +52,8 @@ function stopClick(event) {
   p11.innerHTML = 25;
 }
 
-let p9 = document.querySelector("p9");
-p9.addEventListener("click", stopClick);
+//let p9 = document.querySelector("p9");
+//p9.addEventListener("click", stopClick);
 
 function stopClick1(event) {
   event.preventDefault();
@@ -61,8 +61,8 @@ function stopClick1(event) {
   let tempFar = 25 * 1.8 + 32;
   p11.innerHTML = tempFar;
 }
-let p10 = document.querySelector("p10");
-p10.addEventListener("click", stopClick1);
+//let p10 = document.querySelector("p10");
+//p10.addEventListener("click", stopClick1);
 
 p24 = document.querySelector("p24");
 p25 = document.querySelector("p25");
@@ -107,6 +107,9 @@ p30.innerHTML = `${day6} ${date+6} ${month}`;
 
 function displayWeatherCondition(response) {
   //console.log(response.data[0].name);
+
+    celsiusTemperature = response.data.main.temp;
+
     document.querySelector(".city").innerHTML = response.data.name;
     document.querySelector("p11").innerHTML = Math.round(
     response.data.main.temp
@@ -127,6 +130,8 @@ function displayWeatherCondition(response) {
   //city.innerHTML = `Currently in <strong> ${response.data[0].name} </strong>`;
   //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${response.data[0].name}&appid=58be440968db92b348001fa4911e5ece&units=metric`;
   //axios.get(apiUrl).then(displayWeatherCondition);
+
+
 };
 
 function searchCity(city) {
@@ -156,10 +161,34 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
+function displayFahrenheitT(event) {
+  event.preventDefault();
+  let farenheiTemp = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("p11");
+  temperatureElement.innerHTML = Math.round(farenheiTemp);
+}
+
+function displayCelsiusT(event) {
+  event.preventDefault();
+  let temperatureElement2 = document.querySelector("p11");
+  temperatureElement2.innerHTML = Math.round(celsiusTemperature);
+}
+
+
+let celsiusTemperature = null;
+
 let searchInputButton = document.querySelector("#button-addon2");
 searchInputButton.addEventListener("click", handleSubmit);
 
 let currentLocationButton = document.querySelector(".current");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+
+
+let fahrenLink = document.querySelector("#fahren");
+fahrenLink.addEventListener("click", displayFahrenheitT);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusT);
 
 searchCity("London");

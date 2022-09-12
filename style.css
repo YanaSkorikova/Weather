@@ -31,7 +31,7 @@ img{
   font-size: 30px;
   color: #4169E1;
   padding-top: 20px;
-  padding-left: 230px;
+
 
 }
 .grid-container{
@@ -58,12 +58,22 @@ p2{
   color: #4169E1;
 }
 li{
-  text-align: center;
+
   font-size: 25px;
   font-style: italic;
   text-shadow: 2px 2px 5px lightcoral;
   list-style: none;
 }
+
+.firstlane{
+       font-family: "Times New Roman", Times, serif;
+       font-size: 30px;
+       color: #4169E1;
+       padding-top: 20px;
+       padding-left: 210px;
+}
+
+
 .me{
   padding-top: 20px;
   text-align: center;
