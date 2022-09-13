@@ -180,6 +180,7 @@ let celsiusTemperature = null;
 let searchInputButton = document.querySelector("#button-addon2");
 searchInputButton.addEventListener("click", handleSubmit);
 
+
 let currentLocationButton = document.querySelector(".current");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
