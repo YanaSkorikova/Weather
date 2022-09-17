@@ -8,20 +8,21 @@ p{
     text-align: center;
     padding-top: 40px;
 }
-.container{
+.weather-forecast{
   padding-top: 30px;
-  width: 70%;
+  width: 60%;
   margin: auto;
   padding-bottom: 30px;
 
 }
 img{
-  width: 100%;
+  width: 80%;
   padding: auto;
 }
 .col{
   border-style: groove;
-  width: 130%;
+  border-color: #4169E1;
+  width: 100%;
   margin: auto;
   padding-bottom: 25px;
   background-color: #FFFAFA;
@@ -70,7 +71,7 @@ li{
        font-size: 30px;
        color: #4169E1;
        padding-top: 20px;
-       padding-left: 210px;
+       padding-left: 20%;
 }
 
 
@@ -78,25 +79,31 @@ li{
   padding-top: 20px;
   text-align: center;
 }
+
 p4, p24, p25, p26, p27, p28, p29, p30{
   font-size: 20px;
   text-shadow: 2px 2px 5px lightcoral;
 }
-a:link {
-  color: green;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:visited {
-  color: #483D8B;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
+#item3 strong {
   color: red;
-  background-color: transparent;
-  text-decoration: underline;
+
 }
+#item3 .units {
+  position: relative;
+  font-size: 26px;
+
+}
+
+#item3 .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+#item3 .active:hover {
+  text-decoration: none;
+
+}
+
 .current {
   display: inline;
   margin: auto;
@@ -111,3 +118,7 @@ a:hover {
   box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
   cursor: pointer;
 }
+
+ .col-2 {
+   text-align: center;
+ }

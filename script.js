@@ -79,15 +79,21 @@ let day4 = days[now.getDay()+4];
 let day5 = days[now.getDay()+5];
 let day6 = days[now.getDay()-1];
 
-p24.innerHTML = `${day} ${date} ${month}`;
-p25.innerHTML = `${day1} ${date+1} ${month}`;
-p26.innerHTML = `${day2} ${date+2} ${month}`;
-p27.innerHTML = `${day3} ${date+3} ${month}`;
-p28.innerHTML = `${day4} ${date+4} ${month}`;
-p29.innerHTML = `${day5} ${date+5} ${month}`;
-p30.innerHTML = `${day6} ${date+6} ${month}`;
+//p24.innerHTML = `${day} ${date} ${month}`;
+//p25.innerHTML = `${day1} ${date+1} ${month}`;
+//p26.innerHTML = `${day2} ${date+2} ${month}`;
+//p27.innerHTML = `${day3} ${date+3} ${month}`;
+//p28.innerHTML = `${day4} ${date+4} ${month}`;
+//p29.innerHTML = `${day5} ${date+5} ${month}`;
+//p30.innerHTML = `${day6} ${date+6} ${month}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+  return days[day];
+}
 
 
 
@@ -105,8 +111,46 @@ p30.innerHTML = `${day6} ${date+6} ${month}`;
   //axios.get(apiUrl).then(displayWeatherCondition);
 //}
 
+function displayForecast(response){
+ let forecast = response.data.daily;
+ let forecastElement = document.querySelector("#forecast");
+
+ let forecastHTML = `<div class="row">`;
+ forecast.forEach( function(forecastDay, index) {
+   if (index < 6) {
+     forecastHTML = forecastHTML+
+     `
+
+     <div class="col-2">
+       <div class="col"><p24>${formatDay(forecastDay.dt)}</p24>
+       <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="">
+       <p4>${Math.round(
+            forecastDay.temp.max
+          )}° -${Math.round(
+            forecastDay.temp.min
+          )} °</p4>
+     </div>
+     </div>
+
+
+     `;
+   }
+});
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates){
+  console.log(coordinates);
+  let apiKey = "58be440968db92b348001fa4911e5ece";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast)
+}
+
 function displayWeatherCondition(response) {
-  //console.log(response.data[0].name);
 
     celsiusTemperature = response.data.main.temp;
 
@@ -130,7 +174,7 @@ function displayWeatherCondition(response) {
   //city.innerHTML = `Currently in <strong> ${response.data[0].name} </strong>`;
   //let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${response.data[0].name}&appid=58be440968db92b348001fa4911e5ece&units=metric`;
   //axios.get(apiUrl).then(displayWeatherCondition);
-
+getForecast(response.data.coord);
 
 };
 

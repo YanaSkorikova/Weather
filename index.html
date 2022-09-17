@@ -33,42 +33,8 @@
 </form>
  <li class="firstlane">Currently in <span class="city"> <strong>London</strong></span> :
 </li>
+<div class="weather-forecast" id="forecast"></div>
 
-<div class="container">
-
-<div class="grid text-center" style="--bs-columns: 7;--bs-gap: 3rem;">
-  <div class="col"><p24>Mon 18 Jul</p24>
-  <img src="sun.jpg" alt="">
-  <p4>26° - 16°</p4>
-</div>
-  <div class="col"><p25>Tue 19 Jul</p25>
-  <img src="storm.jpeg" alt="">
-  <p4>24° - 14°</p4>
-</div>
-  <div class="col"><p26>Wed 20 Jul</p26>
-  <img src="sun.jpg" alt="">
-  <p4>22° - 15°</p4>
-</div>
-  <div class="col"><p27>Thu 21 Jul</p27>
-  <img src="rain.jpg" alt="">
-  <p4>20° - 16°</p4>
-</div>
-  <div class="col"><p28>Fri 22 Jul</p28>
-  <img src="snow.jpg" alt="">
-  <p4>19° - 11°</p4>
-</div>
-  <div class="col"><p29>Sat 23 Jul</p29>
-  <img src="rainbow.jpg" alt="">
-  <p4>17° - 19°</p4>
-</div>
-  <div class="col"><p30>Sun 24 Jul</p30>
-  <img src="rain.jpg" alt="">
-  <p4>19° - 11°</p4>
-</div>
-
-</div>
-
-</div>
 
 
   <div class="grid-container">
@@ -77,11 +43,13 @@
   </p2>
         <img src="image.jpeg" alt="" id="icon">
   </div>
-  <div class="grid-item item3">
+  <div class="grid-item item3" id="item3">
     <ul>
               <li>
-                Temperature: <p11> 25</p11><p9><a href= "#" id="celsius"> °C </a></p9>
-                <p10><a href="#" id="fahren"> / °F </a></p10>
+                Temperature: <p11> 25</p11><span class="units"
+                    ><a href= "#" id="celsius"> °C </a>
+                <a href="#" id="fahren"> / °F </a></span
+                  >
                  </li>
               <li>feels like: <span id="feels_like"></span> °C</li>
               <li>Humidity: <span id="humidity"></span>%</li>
